@@ -13,7 +13,7 @@ const pluckCategories = edges =>
       });
 
       return acc;
-    }, {}),
+    }, {})
   );
 
 const groupByCategory = edges =>
@@ -37,7 +37,7 @@ const createCategoryPages = (createPage, edges) => {
       createPage,
       posts[category],
       `/categories/${category}`,
-      { categories, activeCategory: category },
+      { categories, activeCategory: category }
     );
   });
 };
@@ -52,13 +52,13 @@ const createPosts = (createPage, edges) => {
       component: componentWithMDXScope(
         path.resolve(`./src/templates/post.js`),
         node.code.scope,
-        __dirname,
+        __dirname
       ),
       context: {
         id: node.id,
         prev,
-        next,
-      },
+        next
+      }
     });
   });
 };
@@ -73,7 +73,7 @@ const createPaginatedPages = (
   createPage,
   edges,
   pathPrefix,
-  context,
+  context
 ) => {
   const pages = edges.reduce((acc, value, index) => {
     const pageIndex = Math.floor(index / PAGINATION_OFFSET);
@@ -102,10 +102,10 @@ const createPaginatedPages = (
           previousPagePath:
             index === pages.length - 1 ? null : previousPagePath,
           pageCount: pages.length,
-          pathPrefix,
+          pathPrefix
         },
-        ...context,
-      },
+        ...context
+      }
     });
   });
 };
@@ -147,9 +147,9 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       modules: [path.resolve(__dirname, 'src'), 'node_modules'],
       alias: {
-        $components: path.resolve(__dirname, 'src/components'),
-      },
-    },
+        $components: path.resolve(__dirname, 'src/components')
+      }
+    }
   });
 };
 
@@ -162,49 +162,49 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     createNodeField({
       name: 'id',
       node,
-      value: node.id,
+      value: node.id
     });
 
     createNodeField({
       name: 'title',
       node,
-      value: node.frontmatter.title,
+      value: node.frontmatter.title
     });
 
     createNodeField({
       name: 'description',
       node,
-      value: node.frontmatter.description,
+      value: node.frontmatter.description
     });
 
     createNodeField({
       name: 'slug',
       node,
-      value: node.frontmatter.slug,
+      value: node.frontmatter.slug
     });
 
     createNodeField({
       name: 'date',
       node,
-      value: node.frontmatter.date || '',
+      value: node.frontmatter.date || ''
     });
 
     createNodeField({
       name: 'banner',
       node,
-      banner: node.frontmatter.banner,
+      banner: node.frontmatter.banner
     });
 
     createNodeField({
       name: 'categories',
       node,
-      value: node.frontmatter.categories || [],
+      value: node.frontmatter.categories || []
     });
 
     createNodeField({
       name: 'keywords',
       node,
-      value: node.frontmatter.keywords || [],
+      value: node.frontmatter.keywords || []
     });
   }
 };
