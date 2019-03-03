@@ -1,15 +1,14 @@
 module.exports = {
   pathPrefix: '/',
   siteMetadata: {
-    siteUrl: 'https://www.robinwieruch.de/',
-    author: 'Robin Wieruch',
-    title: 'Gatsby MDX Starter Project',
-    description: 'My Gatsby MDX Starter Project',
+    siteUrl: 'https://www.vemulakonda.com/',
+    author: 'Pradeep vemulakonda',
+    title: 'Personal blog',
+    description: 'My blog',
     keywords: [
       'Software Engineer',
       'Web Developer',
-      'Consultant',
-      'Freelancer',
+      'Designer'
     ],
   },
   plugins: [
@@ -51,8 +50,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        name: 'A learning, teaching and writing software engineer',
-        short_name: 'RWieruch',
+        name: 'Personalblogr',
+        short_name: 'vemulakonda',
         start_url: '/',
         background_color: '#fff',
         theme_color: '#525dce',
